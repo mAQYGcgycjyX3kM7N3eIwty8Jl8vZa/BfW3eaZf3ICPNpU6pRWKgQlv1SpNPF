@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- website -->
+    <link rel="apple-touch-icon" sizes="120x120" href="../img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="../img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="../img/favicons/safari-pinned-tab.svg" color="#7F78BD">
+    <meta name="msapplication-TileColor" content="#7f78bd">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Million bCoins I Happy</title>
+
+    <!-- link preview -->
+    <meta name="theme-color" content="#181818">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Альбом: Million bCoins I happy (2021, ZippWitch) | 7 треков">
+    <meta property="og:image"
+        content="https://zippw.xyz/img/Albums/MillionbCoinsIHappy.jpg">
+    <meta property="og:site_name" content="Million bCoins I happy">
+    <meta property="og:url" content="https://zippw.xyz/music">
+    <meta property="og:title" content="Слушать">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../music/!music.css">
+    <link rel="stylesheet" href="../js/lib/context/skins/osx-dark.css" type="text/css" id="skin" />
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- <style>
+
+    </style> -->
+    <script>
+        window.onload = async function () {
+
+            var gradients = {
+                start: '#2a5470',
+                end: '#4c4177'
+            }
+
+            var el = document.querySelector('body');
+
+            var animation = anime({
+                targets: gradients,
+                start: '#0c0d1a',
+                end: '#1d1f3e',
+                duration: 3000,
+                easing: 'easeOutQuad',
+                // loop: true,
+                // direction: 'alternate',
+                update: function (a) {
+                    var value1 = a.animations[0].currentValue;
+                    var value2 = a.animations[1].currentValue;
+                    el.style.backgroundImage = 'linear-gradient(60deg, ' + value1 + ' 0%, ' + value2 + ' 100%)'
+                }
+            });
+            anime.timeline({}).add({
+                targets: '.song',
+                // translateY: ['100px', 0],
+                translateY: ['100px', 0],
+                opacity: [0, 1],
+                duration: 500,
+                delay: (el, i) => 150 + 25 * i
+            }, 0).add({
+                targets: '.textPlayLists, .playListContainer',
+                opacity: [0, 1],
+                delay: (el, i) => 150 + 25 * i
+            }, 0); anime({
+                targets: '.audio-container',
+                translateY: ['100px', 0],
+                duration: 1000,
+                easing: 'easeInQuart'
+            }); anime({
+                targets: '.back',
+                translateX: ['100px', 0],
+                duration: 1000,
+                easing: 'easeInQuart'
+            }); anime.timeline().add({
+                targets: '.albumHeader .frame',
+                translateY: ['10px', 0],
+                opacity: [0, 1],
+                duration: 500,
+                easing: 'easeOutCubic'
+                // endDelay: 0,
+            }).add({
+                targets: '.albumHeader .text',
+                translateX: ['-50px', 0],
+                opacity: [0, 1],
+                duration: 500,
+                easing: 'easeOutCubic'
+            }); document.querySelector(".ml6 .lettersAnimation").innerHTML = document.querySelector(".ml6 .lettersAnimation").textContent.replace(/\S/g, "<span class='letter'>$&</span>"), document.body.classList.add("loaded_hiding"), await window.setTimeout(async function () { document.body.classList.add("loaded"), document.body.classList.remove("loaded_hiding"), await anime.timeline({ loop: !1, onload: !0 }).add({ targets: ".ml6 .letter", opacity: [0, 1], translateY: ["-1.1em", 0], translateZ: 0, duration: 250, delay: (t, e) => 20 * e }), await anime.timeline().add({ targets: "#navbarButton", translateX: [-10, 0], opacity: [0, 1], duration: 1e3, delay: (t, e) => 50 * e }) }, 500)
+        };
+    </script>
+
+    <!-- top-line -->
+    <section class="noselect top-line h" id="top-line">
+        <div class=" container-fluid">
+            <div class="row">
+                <div class="col-md-12" style="padding-right: 0">
+                    <div id="hide" class="logo" alt="">
+                        <a itemprop="url" tabindex="0" href="../" alt="DISCORD" title="На главную">
+                            <h1 class="ml6 logoTextAlt noselect">
+                                <span class="text-wrapper">
+                                    <span class="lettersAnimation">ZippWitch
+                                        ~</span>
+                                </span>
+                            </h1>
+                        </a>
+                    </div>
+
+                    <div class="menu-head">
+                        <ul id="hide">
+                            <li itemprop="name" id="navbarButton">
+                                <a itemprop="url" tabindex="0" class="underline__right" href="../portfolio">
+                                    <i class="fas fa-user"></i> Портфолио
+                                </a>
+                            </li>
+                            <li itemprop="name" id="navbarButton">
+                                <a itemprop="url" tabindex="0" class="underline__right" href="../team">
+                                    <i class="fas fa-handshake"></i> Лучшие
+                                </a>
+                            </li>
+                            <li itemprop="name" id="navbarButton"><a itemprop="url" tabindex="0"
+                                    class="underline__right" href="https://www.donationalerts.com/r/zippwitch"><i
+                                        class="fas fa-coffee"></i>
+                                    Донат</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="hamburger" class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox"
+                        onclick="this.checked?anime.timeline().add({targets:'.content', easing:'easeOutCubic', opacity: [1, 0], duration: 500}).add({targets:'.menu__box',translateX:['-120%','-30%'],duration:800}, 0).add({targets:'#menu__item',translateX:[-10,0],duration:300,delay:(e,a)=>50*a}):anime.timeline().add({targets:'.menu__box',translateX:['-30%','-20%'],duration:150,easing:'easeInOutCubic'}).add({targets:'.menu__box',translateX:['-20%','-120%'],duration:400,easing:'easeInOutCubic'}).add({targets:'.content', easing:'easeOutCubic', opacity: [0, 1]});" />
+                    <label class="menu__btn" for="menu__toggle">
+                        <span></span>
+                    </label>
+                    <ul class="menu__box">
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-home"></i></div>
+                            <div class="menu__item-text-container"><a class="" href="https://zippw.xyz/">Главная</a>
+                            </div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-user"></i></div>
+                            <div class="menu__item-text-container"><a href="https://zippw.xyz/portfolio">Портфолио</a>
+                            </div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-music"></i></div>
+                            <div class="menu__item-text-container"><a href="https://zippw.xyz/music">Музыка</a></div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-handshake"></i></div>
+                            <div class="menu__item-text-container"><a href="https://zippw.xyz/team">Лучшие</a></div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-coffee"></i></div>
+                            <div class="menu__item-text-container"><a
+                                    href="https://www.donationalerts.com/r/zippwitch">Донат</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/lib/context/context.js"></script>
+    <script>
+        const skinActivator = t => { document.getElementById("skin").setAttribute("href", `../js/lib/context/skins/${t.data.value}.css`), t.handled = !0 }, chromeContextMenu = new ContextMenu(document.body, [{ text: "Назад", icon: "arrow-left", hotkey: "Alt+Стрелка влево", disabled: !(window.history.length > 1), onclick: t => { window.history.back() } }, { text: "Вперёд", icon: "arrow-right", hotkey: "Alt+Стрелка вправо", disabled: !0, onclick: t => { window.history.forward() } }, { text: "Перезагрузить", icon: "refresh", hotkey: "Ctrl+R", onclick: t => { window.location.reload() } }, null, { text: "Печать...", icon: "print", hotkey: "Ctrl+P", onclick: t => { chromeContextMenu.hide(), window.print() } }, null, { text: " Просмотр кода страницы", icon: "code-o", hotkey: "Ctrl+U", onclick: t => { window.open("view-source:zippw.xyz") } }]); chromeContextMenu.install();
+    </script>
+
+    <!-- content -->
+    <div class="music-header album header content">
+        <a href="../music" class="back"><i class="fas fa-angle-left"></i> Назад</a>
+        <div class="albumHeader">
+            <div class="frame">
+                <img height="70%"
+                    src="../img/Albums/MillionbCoinsIHappy.jpg">
+                <button onclick="loadSong(songs[0]); playSong()" id="albumPlay"><i
+                        class="play-repeat fas fa-play"></i></button>
+            </div>
+            <div class="text">
+                <h2>Million bCoins</h2>
+                <h3>I happy</h3>
+            </div>
+        </div>
+        <div id="songPlaylist">
+            <h3 class="textPlayLists"><i class="fas fa-music"></i> Альбом</h3>
+            <script>
+                const songs = [
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'Untitled', path: '1untitledahegadgadg', author: 'ZippZitch' },
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'MIDI', path: '2sdgh[voikshf0ghiovsfgihfgj', author: 'ZippWitch feat. IgorYanBratan' },
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'beat2', path: '3beat2', author: 'ZippWitch' },
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'beat1', path: '4beat1', author: 'ZippWitch' },
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'Чертильница', path: '5agagadgadgadgadg', author: 'ZippWitch' },
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'Гуд дэй', path: '6asfasfasdadsasfasfsdfsgd', author: 'ZippWitch' },
+                    { date: '2021', album: 'album0', pic: '../img/Albums/MillionbCoinsIHappy.jpg', title: 'MBIH', path: '7aiuhfuiahduigagd', author: 'ZippWitch', new: true }
+                ];
+
+                const onclickButton = async function (song) {
+                    document.querySelector('button').style.transform = 'none';
+                    loadSong(song);
+                    playSong();
+                    await anime({ targets: '.fa-repeat', rotate: '+=1turn', duration: 1000 })
+                }
+                const throttle = (func, limit, button) => {
+                    button.disabled = true
+                    setTimeout(() => {
+                        func
+                        button.disabled = false
+                    }, limit)
+                }
+                songs.forEach((song, i) => document.write(`<div class="song ${song.album} ${i == songs.length - 1 ? 'lastSong' : ''}">
+      <div class="img">
+      <img src="${song.pic}"/>
+      </div>
+      <div class="more">
+      <div class="song_info">
+         <p id="${song.path}">${song.title}</p>
+         <p>${song.author}</p>
+      </div>
+      <button onclick="throttle(onclickButton(${JSON.stringify(song).replaceAll('"', '\'')}), 1000, this)" id="${song.path}PlayButton"><i id="${song.path}PlayButtonIcon" class="play-repeat fas fa-play" aria-hidden="true"></i></button>
+      </div>
+    </div>`));
+            </script>
+
+            <style>
+                .songListItem {
+                    color: white;
+                    height: 30px;
+                    width: 400px;
+                    transition: .2s
+                }
+
+                .download {
+                    transition: .2s;
+                    transform: translateY(2px)
+                }
+
+                .download:active {
+                    transform: scale(0.8)
+                }
+
+                .play-repeat,
+                .fa-repeat {
+                    transition: .1s
+                }
+
+                .fa-repeat:active {
+                    transform: scale(0.8);
+                }
+
+                .fa-play:active {
+                    transform: scale(0.8)
+                }
+
+                .ml12 .letter {
+                    display: inline-block;
+                    line-height: 1em;
+                }
+
+                .gradient {
+                    background: -webkit-linear-gradient(90deg, #c08ef1 20%, #89a8fc 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            </style>
+        </div>
+        <div class="lt audio-container" id="audio-container">
+            <div class="audio-info">
+                <h4 class="slider__title ml12" id="title">Melody</h4>
+                <h5 class="slider__title" id="author">ZippWitch</h5>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+            <audio src="../music/1untitledahegadgadg.mp3" id="audio"></audio>
+            <div class="navigation">
+                <button onclick="shuffle(songs)" id="shuffle" class="action-btn">
+                    <i class="fas fa-random"></i>
+                </button>
+                <button onclick="prevSong();" id="prev" class="prev action-btn">
+                    <i class="fas fa-step-backward"></i>
+                </button>
+                <button id="play" class="buttonPlay">
+                    <i class="fas fa-play gradient"></i>
+                </button>
+                <button onclick="nextSong(); " id="next" class="action-btn">
+                    <i class="fas fa-step-forward"></i>
+                </button>
+                <button onclick="repeat(this)" id="repeat" class="action-btn">
+                    <i class="fas fa-retweet"></i>
+                </button>
+                <script>
+                    function shuffle(array) {
+                        array.sort(() => Math.random() - 0.5);
+                    }
+                </script>
+            </div>
+
+
+
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+        <script src="../music/!music.js"></script>
+    </div>
+
+    <!-- stock -->
+    <script src="../js/lib/anime.min.js"></script>
+</body>
+
+</html>

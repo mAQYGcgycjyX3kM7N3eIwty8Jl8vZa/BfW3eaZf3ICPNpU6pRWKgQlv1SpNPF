@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- website -->
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="img/favicons/site.webmanifest">
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#7F78BD">
+    <meta name="msapplication-TileColor" content="#7f78bd">
+    <meta name="theme-color" content="#7f78bd">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя музыка</title>
+
+    <!-- link preview -->
+    <meta name="theme-color" content="#7f78bd">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="Главная страница авторской музыки Мосунова Валерия (ZippWitch)">
+    <meta property="og:image" content="https://zippw.xyz/img/Albums/MyMusic.jpg">
+    <meta property="og:site_name" content="Моя музыка">
+    <meta property="og:url" content="https://zippw.xyz/music">
+    <meta property="og:title" content="Перейти">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="music/!music.css">
+    <link rel="stylesheet" href="./js/lib/context/skins/osx-dark.css" type="text/css" id="skin" />
+
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <!-- <style>
+
+    </style> -->
+    <style>
+        canvas,
+        #parallaxHeader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 105%;
+            z-index: -1
+        }
+    </style>
+    <div id="parallaxHeader">
+
+        <canvas data-depth="0.2" id="canvas"></canvas>
+    </div>
+    <script src="music/snow.js"></script>
+    <script>
+        window.onload = async function () {
+
+            var gradients = {
+                start: '#2a5470',
+                end: '#4c4177'
+            }
+
+            var el = document.querySelector('body');
+
+            var animation = anime({
+                targets: gradients,
+                start: '#0c0d1a',
+                end: '#1d1f3e',
+                duration: 3000,
+                easing: 'easeOutQuad',
+                // loop: true,
+                // direction: 'alternate',
+                update: function (a) {
+                    var value1 = a.animations[0].currentValue;
+                    var value2 = a.animations[1].currentValue;
+                    el.style.backgroundImage = 'linear-gradient(60deg, ' + value1 + ' 0%, ' + value2 + ' 100%)'
+                }
+            });
+
+            var textWrapper = document.querySelector('.ml14 .letters');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+            anime.timeline({})
+                .add({
+                    targets: '.ml14 .line',
+                    scaleX: [0, 1],
+                    opacity: [0.5, 1],
+                    easing: "easeInOutExpo",
+                    duration: 900
+                }).add({
+                    targets: '.ml14 .letter',
+                    opacity: [0, 1],
+                    translateX: [40, 0],
+                    translateZ: 0,
+                    scaleX: [0.3, 1],
+                    easing: "easeOutExpo",
+                    duration: 800,
+                    offset: '-=600',
+                    delay: (el, i) => 150 + 25 * i
+                }, 0).add({
+                    targets: '.song',
+                    // translateY: ['100px', 0],
+                    translateY: ['100px', 0],
+                    opacity: [0, 1],
+                    duration: 500,
+                    delay: (el, i) => 150 + 25 * i
+                }, 0).add({
+                    targets: '.textPlayLists, .playListContainer, .playListContainer2',
+                    opacity: [1, 1],
+                    delay: (el, i) => 150 + 35 * i
+                }, 0); anime({
+                    targets: '.audio-container',
+                    translateZ: [],
+                    translateY: ['100px', 0],
+                    duration: 1000
+                }); document.querySelector(".ml6 .lettersAnimation").innerHTML = document.querySelector(".ml6 .lettersAnimation").textContent.replace(/\S/g, "<span class='letter'>$&</span>"), document.body.classList.add("loaded_hiding"), await window.setTimeout(async function () { document.body.classList.add("loaded"), document.body.classList.remove("loaded_hiding"), await anime.timeline({ loop: !1, onload: !0 }).add({ targets: ".ml6 .letter", opacity: [0, 1], translateY: ["-1.1em", 0], translateZ: 0, duration: 250, delay: (t, e) => 20 * e }), await anime.timeline().add({ targets: "#navbarButton", translateX: [-10, 0], opacity: [0, 1], duration: 1e3, delay: (t, e) => 50 * e }) }, 500)
+        };
+    </script>
+
+    <!-- top-line -->
+    <section class="noselect top-line h" id="top-line">
+        <div class=" container-fluid">
+            <div class="row">
+                <div class="col-md-12" style="padding-right: 0">
+                    <div id="hide" class="logo" alt="">
+                        <a itemprop="url" tabindex="0" href="./" alt="DISCORD" title="На главную">
+                            <h1 class="ml6 logoTextAlt noselect">
+                                <span class="text-wrapper">
+                                    <span class="lettersAnimation">ZippWitch
+                                        ~</span>
+                                </span>
+                            </h1>
+                        </a>
+                    </div>
+
+                    <div class="menu-head">
+                        <ul id="hide">
+                            <li itemprop="name" id="navbarButton">
+                                <a itemprop="url" tabindex="0" class="underline__right" href="./portfolio">
+                                    <i class="fas fa-user"></i> Портфолио
+                                </a>
+                            </li>
+                            <li itemprop="name" id="navbarButton">
+                                <a itemprop="url" tabindex="0" class="underline__right" href="./team">
+                                    <i class="fas fa-handshake"></i> Лучшие
+                                </a>
+                            </li>
+                            <li itemprop="name" id="navbarButton"><a itemprop="url" tabindex="0"
+                                    class="underline__right" href="https://www.donationalerts.com/r/zippwitch"><i
+                                        class="fas fa-coffee"></i>
+                                    Донат</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="hamburger" class="hamburger-menu">
+                    <input id="menu__toggle" type="checkbox"
+                        onclick="this.checked?anime.timeline().add({targets:'.content', easing:'easeOutCubic', opacity: [1, 0], duration: 500}).add({targets:'.menu__box',translateX:['-120%','-30%'],duration:800}, 0).add({targets:'#menu__item',translateX:[-10,0],duration:300,delay:(e,a)=>50*a}):anime.timeline().add({targets:'.menu__box',translateX:['-30%','-20%'],duration:150,easing:'easeInOutCubic'}).add({targets:'.menu__box',translateX:['-20%','-120%'],duration:400,easing:'easeInOutCubic'}).add({targets:'.content', easing:'easeOutCubic', opacity: [0, 1]});" />
+                    <label class="menu__btn" for="menu__toggle">
+                        <span></span>
+                    </label>
+                    <ul class="menu__box">
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-home"></i></div>
+                            <div class="menu__item-text-container"><a class="" href="https://zippw.xyz/">Главная</a>
+                            </div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-user"></i></div>
+                            <div class="menu__item-text-container"><a href="https://zippw.xyz/portfolio">Портфолио</a>
+                            </div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-music"></i></div>
+                            <div class="menu__item-text-container"><a href="https://zippw.xyz/music">Музыка</a></div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-handshake"></i></div>
+                            <div class="menu__item-text-container"><a href="https://zippw.xyz/team">Лучшие</a></div>
+                        </li>
+                        <li id="menu__item">
+                            <div class="menu__item-icon-container"><i class="fas fa-coffee"></i></div>
+                            <div class="menu__item-text-container"><a
+                                    href="https://www.donationalerts.com/r/zippwitch">Донат</a></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./js/lib/context/context.js"></script>
+    <script>
+        const skinActivator = t => { document.getElementById("skin").setAttribute("href", `./js/lib/context/skins/${t.data.value}.css`), t.handled = !0 }, chromeContextMenu = new ContextMenu(document.body, [{ text: "Назад", icon: "arrow-left", hotkey: "Alt+Стрелка влево", disabled: !(window.history.length > 1), onclick: t => { window.history.back() } }, { text: "Вперёд", icon: "arrow-right", hotkey: "Alt+Стрелка вправо", disabled: !0, onclick: t => { window.history.forward() } }, { text: "Перезагрузить", icon: "refresh", hotkey: "Ctrl+R", onclick: t => { window.location.reload() } }, null, { text: "Печать...", icon: "print", hotkey: "Ctrl+P", onclick: t => { chromeContextMenu.hide(), window.print() } }, null, { text: " Просмотр кода страницы", icon: "code-o", hotkey: "Ctrl+U", onclick: t => { window.open("view-source:zippw.xyz") } }]); chromeContextMenu.install();
+    </script>
+
+    <!-- content -->
+    <div class="music-header header content">
+        <style>
+            .ml14 {
+                font-weight: 200;
+                font-size: 2.7em;
+            }
+
+            .ml14 .text-wrapper {
+                position: relative;
+                display: inline-block;
+                padding-top: 0.1em;
+                padding-right: 0.05em;
+                padding-bottom: 0.15em;
+            }
+
+            .ml14 .line {
+                opacity: 0;
+                position: absolute;
+                left: 0;
+                height: 2px;
+                width: 100%;
+                background-color: #fff;
+                transform-origin: 100% 100%;
+                bottom: 0;
+            }
+
+            .ml14 .letter {
+                display: inline-block;
+                line-height: 1em;
+                opacity: 0
+            }
+
+            .songListItem {
+                transform: translateY(100px);
+                opacity: 0;
+                /* height: 80px!important; */
+                height: 60px !important;
+                background: #22244d;
+                border-radius: 8px;
+                margin-bottom: 10px;
+                max-width: 100%;
+                /* padding: 10px 0 10px 0; */
+
+            }
+
+            .songListItem button {
+                background: red !important;
+                padding: 0 10px 0 10px;
+                margin: 0;
+                height: 100%
+            }
+
+            .songListItem span {
+                padding-left: 10px
+            }
+
+            .songListItem .download {
+                background: red;
+                height: 100%
+            }
+
+            /* #songPlaylist {
+                background-color: rgba(255, 255, 255, 0.06);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+                backdrop-filter: blur(10px);
+            } */
+        </style>
+        <h1 class="lt ml14" style="
+        text-align: center;">
+            <span class="text-wrapper">
+                <span class="letters">ZippMusic</span>
+                <span class="line"></span>
+            </span>
+        </h1>
+        <script>
+            var textWrapper = document.querySelector('.ml14 .letters');
+            textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        </script>
+        <div id="PlayLists">
+            <h3 class="textPlayLists"><i class="fas fa-music"></i> Альбомы</h3>
+            <div data-testid="grid-container" class="grid gred" style="--minimumColumnWidth:270px; row-gap: 16px;">
+                <a href="music/100" class="playListContainer">
+                    <img src="img/Albums/100.jpg">
+                    <h1>100</h1>
+                </a>
+                <a href="music/Million-bCoins-I-happy" class="playListContainer">
+                    <img src="img/Albums/MillionbCoinsIHappy.jpg">
+                    <h1>Million bCoins I happy</h1>
+                </a>
+                <a href="music/Vyva2" class="playListContainer">
+                    <img src="https://zippw.xyz/img/avatars/soundcloud_avatar.jpg">
+                    <h1>Выва II</h1>
+                </a>
+                <a href="music/vyva" class="playListContainer">
+                    <img src="img/Albums/vyva.jpg" width="80px">
+                    <h1>Выва I</h1>
+                </a>
+            </div>
+
+            <h3 class="textPlayLists"><i class="fas fa-music"></i> Плейлисты</h3>
+            <div class="playListContainer2Gred" style="--minimumColumnWidth:180px;">
+                <a href="music/all" class="playListContainer2">
+                    <div class="playListContainer2Bg"
+                        style="background: url(https://images.wallpaperscraft.ru/image/single/piramidy_zvezdnoe_nebo_noch_161840_1920x1080.jpg)">
+                    </div>
+                    <div class="playListContainer2Text1">
+                        <img class="playListContainer2img" src="img/Albums/all.jpg">
+
+                        <div class="playListContainer2TextDiv">
+                            <div class="playListText">Все треки</div>
+                            <div style="color: rgb(221, 221, 221);">16 треков</div>
+                        </div>
+                    </div>
+                </a>
+                <a title="Плейсхолдер" style="cursor: no-drop!important" class="playListContainer2">
+                    <div class="playListContainer2Bg"
+                        style="background: url(https://images4.alphacoders.com/102/thumb-1920-1029784.jpg)"></div>
+                    <div class="playListContainer2Text1">
+                        <img class="playListContainer2img" src="img/Albums/loved.jpg">
+
+                        <div class="playListContainer2TextDiv">
+                            <div class="playListText">Любимые треки</div>
+                            <div style="color: rgb(221, 221, 221);">13 треков</div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            <!-- <div data-testid="grid-container" class="grid gred" style="--minimumColumnWidth:270px; row-gap: 16px;">
+                <a href="music/all" class="playListContainer">
+                    <img src="img/Albums/all.jpg">
+                    <h1>Все треки</h1>
+                </a>
+            </div> -->
+            <script>
+                function onHoverBtnAnimation(el) {
+                    anime({
+                        targets: {
+                            start: '#2a5470',
+                            end: '#4c4177'
+                        },
+                        start: '#d5b2f8',
+                        end: '#b2c5f8',
+                        duration: 500,
+                        easing: 'easeOutQuad',
+                        // loop: true,
+                        // direction: 'alternate',
+                        update: function (a) {
+                            var value1 = a.animations[0].currentValue;
+                            var value2 = a.animations[1].currentValue;
+                            el.style.backgroundImage = 'linear-gradient(60deg, ' + value1 + ' 0%, ' + value2 + ' 100%)';
+                        }
+                    });
+                }
+            </script>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+    </div>
+    <!-- </div> -->
+    <!-- libraries local -->
+
+    <!-- libraries  public -->
+
+    <!-- stock -->
+    <script src="./js/lib/anime.min.js"></script>
+    <script src="./js/lib/parallax.js"></script>
+    <script>
+        // isMobile = navigator.userAgent.match(/(iPhone|iPod|Android|BlackBerry|iPad|IEMobile|Opera Mini)/); if (!isMobile) {
+        // }
+        var parallaxHeader = document.getElementById('parallaxHeader');
+        var sceneHeader = new Parallax(parallaxHeader, {
+            frictionX: 0.055,
+            frictionY: 0.055,
+            invertX: false
+        });
+    </script>
+</body>
+
+</html>
