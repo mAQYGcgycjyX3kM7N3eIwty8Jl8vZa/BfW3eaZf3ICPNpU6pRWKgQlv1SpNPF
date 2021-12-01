@@ -177,7 +177,8 @@
     <!-- content -->
     <div class="music-header album header content">
         <a href="../music" class="back"><i class="fas fa-angle-left"></i> Назад</a>
-        <div class="albumHeader">
+                <div class="albumHeader">
+            <canvas class="vizualizer" id="canvas"></canvas>
             <div class="frame">
                 <img height="70%" src="../img/Albums/all.jpg">
                 <button onclick="loadSong(songs[0]); playSong()" id="albumPlay"><i
@@ -224,12 +225,30 @@
                     }, limit)
                 }
                 songs.forEach((song, i) => document.write(`<div class="song ${song.album} ${i == songs.length - 1 ? 'lastSong' : ''}">
-      <div class="img">
+            <div class="img">
       <img src="${song.pic}"/>
+      
       </div>
       <div class="more">
       <div class="song_info">
-         <p id="${song.path}">${song.title}</p>
+        <div class="now-playing">
+                <p id="${song.path}">${song.title}</p>
+                <div id="${song.path}musicBarsContainer" class="musicBarsContainer music-bars">
+                    <div class="bar-container">
+                        <div class="bar" id="bar-1"></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar" id="bar-2"></div>
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar" id="bar-3"></div>
+
+                    </div>
+                    <div class="bar-container">
+                        <div class="bar" id="bar-4"></div>
+                    </div>
+                </div>
+            </div>
          <p>${song.author}</p>
       </div>
       <button onclick="throttle(onclickButton(${JSON.stringify(song).replaceAll('"', '\'')}), 1000, this)" id="${song.path}PlayButton"><i id="${song.path}PlayButtonIcon" class="play-repeat fas fa-play" aria-hidden="true"></i></button>
