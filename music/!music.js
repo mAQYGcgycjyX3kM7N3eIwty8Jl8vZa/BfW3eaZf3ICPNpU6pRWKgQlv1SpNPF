@@ -16,7 +16,7 @@ let songIndex = 0;
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
 audio.crossOrigin = "anonymous";
-let context = null;
+let context;
 
 // Update song details
 function loadSong(song) {
@@ -189,25 +189,20 @@ function playSong() {
   if (!context) {
     context = new AudioContext();
   }
-  if (MEDIA_ELEMENT_NODES.has(audio)) {
-    src = MEDIA_ELEMENT_NODES.get(audio);
-  } else {
-    src = context.createMediaElementSource(audio);
-    MEDIA_ELEMENT_NODES.set(audio, src);
-  }
+
+  var src = context.createMediaElementSource(audio);
   analyser = context.createAnalyser();
 
   var canvas = document.getElementById("canvas");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   var ctx = canvas.getContext("2d");
-  src.connect(analyser);
   analyser.connect(context.destination);
+  src.connect(analyser);
 
   analyser.fftSize = 256;
 
   var bufferLength = analyser.frequencyBinCount;
-  console.log(bufferLength);
 
   var dataArray = new Uint8Array(bufferLength);
 
