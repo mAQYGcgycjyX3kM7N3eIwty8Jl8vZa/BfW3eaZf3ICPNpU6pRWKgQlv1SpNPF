@@ -10,10 +10,6 @@ const title = document.getElementById('title');
 const author = document.getElementById('author');
 const cover = document.getElementById('cover');
 
-// Song titles
-
-
-
 // Keep track of song
 let songIndex = 0;
 
@@ -189,8 +185,6 @@ function playSong() {
   document.querySelector('.albumHeader .frame img').style.transform = "scale(0.9)";
   document.querySelector('.albumHeader .frame button').style.display = "none";
 
-
-  audio.load()
   audio.play();
   if (!context) {
     context = new AudioContext();
