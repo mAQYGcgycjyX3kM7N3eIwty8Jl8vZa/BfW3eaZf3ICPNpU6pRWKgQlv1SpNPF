@@ -13,13 +13,14 @@ const cover = document.getElementById('cover');
 // Song titles
 
 
+
 // Keep track of song
 let songIndex = 0;
 
 // Initially load song details into DOM
 loadSong(songs[songIndex]);
 audio.crossOrigin = "anonymous";
-
+let context = null;
 
 // Update song details
 function loadSong(song) {
@@ -189,25 +190,23 @@ function playSong() {
   document.querySelector('.albumHeader .frame button').style.display = "none";
 
 
-  var context;
   audio.load()
   audio.play();
-  if (context == undefined) {
+  if (!context) {
     context = new AudioContext();
   }
-  analyser = context.createAnalyser();
   if (MEDIA_ELEMENT_NODES.has(audio)) {
     src = MEDIA_ELEMENT_NODES.get(audio);
   } else {
     src = context.createMediaElementSource(audio);
     MEDIA_ELEMENT_NODES.set(audio, src);
   }
+  analyser = context.createAnalyser();
 
   var canvas = document.getElementById("canvas");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   var ctx = canvas.getContext("2d");
-
   src.connect(analyser);
   analyser.connect(context.destination);
 
@@ -251,6 +250,7 @@ function playSong() {
   }
   audio.play();
   renderFrame();
+
 }
 
 // Pause song
