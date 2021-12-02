@@ -268,7 +268,7 @@
                         </div>
                     </div>
                 </a>
-                <a id="placeholder" title="Плейсхолдер" style="cursor: no-drop!important" class="playListContainer2">
+                <a onclick="Notify({ title: 'Плейсхолдер', position: 'bottom center', duration: 3000, type: 'warning' })" id="placeholder" title="Плейсхолдер" style="cursor: no-drop!important" class="playListContainer2">
                     <div class="playListContainer2Bg" style="background: url(img/bgs/1637959979366.png)"></div>
                     <div class="playListContainer2Text1">
                         <img class="playListContainer2img" src="img/Albums/loved.jpg">
@@ -280,9 +280,9 @@
                     </div>
                 </a>
                 <script>
-                    document.getElementById('placeholder').addEventListener("mouseenter", function (event) {
-                        Notify({ title: 'Плейсхолдер', position: 'bottom center', duration: 3000, type: 'warning' })
-                    }, false);
+                    // document.getElementById('placeholder').addEventListener("mouseenter", function (event) {
+                    //     Notify({ title: 'Плейсхолдер', position: 'bottom center', duration: 3000, type: 'warning' })
+                    // }, false);
                 </script>
 
             </div>
