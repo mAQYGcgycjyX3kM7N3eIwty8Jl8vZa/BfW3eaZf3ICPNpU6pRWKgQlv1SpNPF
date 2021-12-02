@@ -684,11 +684,12 @@ i.fas {
 .now-playing {
     display: flex;
     /* align-items: center; */
-    justify-content: center;
+    /* justify-content: center; */
 }
 
 .now-playing.main {
     gap: 1rem;
+    justify-content: center;
 }
 
 .music-bars {
