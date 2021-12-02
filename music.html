@@ -33,6 +33,7 @@
 </head>
 
 <body>
+    <div id="notify"></div>
     <!-- <style>
 
     </style> -->
@@ -267,7 +268,7 @@
                         </div>
                     </div>
                 </a>
-                <a title="Плейсхолдер" style="cursor: no-drop!important" class="playListContainer2">
+                <a id="placeholder" title="Плейсхолдер" style="cursor: no-drop!important" class="playListContainer2">
                     <div class="playListContainer2Bg" style="background: url(img/bgs/1637959979366.png)"></div>
                     <div class="playListContainer2Text1">
                         <img class="playListContainer2img" src="img/Albums/loved.jpg">
@@ -278,6 +279,11 @@
                         </div>
                     </div>
                 </a>
+                <script>
+                    document.getElementById('placeholder').addEventListener("mouseenter", function (event) {
+                        Notify({ title: 'Плейсхолдер', position: 'bottom center', duration: 3000, type: 'warning' })
+                    }, false);
+                </script>
 
             </div>
             <!-- <div data-testid="grid-container" class="grid gred" style="--minimumColumnWidth:270px; row-gap: 16px;">
@@ -328,6 +334,7 @@
             invertX: false
         });
     </script>
+    <script src="./js/lib/esm/index.js"></script>
 </body>
 
 </html>
